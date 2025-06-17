@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "alltrails": {
+      "command": "python",
+      "args": ["server.py"],
+      "cwd": "/Users/ssrinivasan.19/CascadeProjects/alltrails_mcp"
+    }
+  }
+}
