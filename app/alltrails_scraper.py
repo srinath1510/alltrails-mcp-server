@@ -176,6 +176,7 @@ def search_trails_in_park(park_slug: str) -> List[Dict]:
         logger.error(f"Unexpected error when parsing trails: {e}")
         return []
 
+
 def get_trail_by_slug(slug: str) -> Dict:
     """
     Get detailed information about a specific trail.
@@ -232,7 +233,7 @@ def get_trail_by_slug(slug: str) -> Dict:
                     if len(summary) > 50:  # Only use substantial descriptions
                         break
         
-        # Extract stats - try multiple approaches
+        # Extract stats
         stats = {}
         
         # Method 1: Look for specific stat elements
