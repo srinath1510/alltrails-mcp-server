@@ -1,9 +1,8 @@
 {
-  "mcpServers": {
-    "alltrails": {
-      "command": "python",
-      "args": ["server.py"],
-      "cwd": "/Users/ssrinivasan.19/CascadeProjects/alltrails_mcp"
+    "mcpServers": {
+      "alltrails_mcp_server": {
+        "command": "/absolute/path/to/your/venv/bin/python/or/to/system/python",
+        "args": ["/absolute/path/to/your/alltrails_mcp/server.py"]
+      }
     }
-  }
 }
