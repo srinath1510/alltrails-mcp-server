@@ -54,7 +54,7 @@ pip install -r requirements.txt
 Test that the server starts without errors:
 
 ```
-python server.py
+python3 server.py
 ```
 
 You should see the server start without crashing. Press Ctrl+C to stop.
@@ -152,7 +152,7 @@ Add the following to your `claude_desktop_config.json` file:
 ```
 cd /path/to/your/alltrails_mcp
 source alltrails_mcp_venv/bin/activate
-which python
+which python3
 ```
 
 #### For System Python Users:
@@ -278,7 +278,7 @@ The MCP server works with natural language, so you can ask questions like:
    ```bash
    cd /path/to/your/alltrails_mcp
    source alltrails_mcp_venv/bin/activate
-   python server.py
+   python3 server.py
    ```
 
 ### Common Issues
