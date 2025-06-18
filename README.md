@@ -326,6 +326,8 @@ alltrails_mcp/
 
 MIT License
 
+Copyright (c) 2025 Srinath Srinivasan
+
 ## Acknowledgments
 
 - Built using the [Model Context Protocol](https://modelcontextprotocol.io/)

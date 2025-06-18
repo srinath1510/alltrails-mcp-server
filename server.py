@@ -1,3 +1,7 @@
+# AllTrails MCP Server
+# Copyright (c) 2025 Srinath Srinivasan
+# Licensed under the MIT License - see LICENSE file for details
+
 import asyncio
 import sys
 from datetime import datetime
