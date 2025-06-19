@@ -7,7 +7,17 @@ A Model Context Protocol (MCP) server that provides access to AllTrails data, al
 - 🥾 **Search trails** by national park
 - 📍 **Get detailed trail information** including difficulty, length, elevation gain, and descriptions
 - 🏔️ **Comprehensive trail data** from AllTrails including ratings, route types, and summaries
-- 🤖 **Seamless Claude integration** via MCP protocol
+- 🤖 **Seamless Client integration** via MCP protocol
+
+## Technical Specifications
+
+### Protocol Support
+
+- **Protocol Version**: MCP 1.9.4
+- **Communication**: Standard input/output (stdio)
+- **Capabilities**: Tools
+- **Server Name**: alltrails-mcp
+- **Server Version**: 0.1.0
 
 ## Tools Available
 
@@ -62,7 +72,7 @@ You should see the server start without crashing. Press Ctrl+C to stop.
 ## Prerequisites
 
 - Python 3.8 or higher
-- Claude Desktop with Pro or better subscription (MCP integration is only available in Pro)
+- This server can be used with any MCP-compatible client. I use Claude Desktop with Pro subscription.
 - macOS (tested) or other Unix-like system
 
 ---
@@ -145,6 +155,14 @@ Add the following to your `claude_desktop_config.json` file:
 ```
 
 **Important:** Replace `/path/to/your/alltrails_mcp` with the actual absolute path to your project directory.
+
+#### Other MCP Clients
+
+For other MCP-compatible clients, refer to their documentation for server configuration. The server implements the standard MCP protocol and should work with any compliant client.
+
+**Server Command:** `python3 server.py`  
+**Communication:** Standard input/output (stdio)  
+**Protocol Version:** MCP 1.9.4
 
 ### 3. Find Your Python Path
 
