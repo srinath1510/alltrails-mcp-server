@@ -1,4 +1,5 @@
 # AllTrails MCP Server
+[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/srinath1510/alltrails-mcp-server)](https://archestra.ai/mcp-catalog/srinath1510__alltrails-mcp-server)
 
 A Model Context Protocol (MCP) server that provides access to AllTrails data, allowing you to search for hiking trails and get detailed trail information directly through Claude Desktop.
 
