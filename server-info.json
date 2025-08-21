@@ -1,0 +1,65 @@
+{
+  "name": "alltrails-mcp",
+  "instructions": null,
+  "fastmcp_version": "2.10.6",
+  "mcp_version": "1.12.0",
+  "server_version": "2.10.6",
+  "tools": [
+    {
+      "key": "search_trails",
+      "name": "search_trails",
+      "description": "Search for trails in a specific national park using AllTrails data.\n\nArgs:\n    park: Park slug in format 'us/state/park-name' (e.g., 'us/tennessee/great-smoky-mountains-national-park')\n\nReturns:\n    A formatted list of trails found in the specified park",
+      "input_schema": {
+        "properties": {
+          "park": {
+            "title": "Park",
+            "type": "string"
+          }
+        },
+        "required": [
+          "park"
+        ],
+        "type": "object"
+      },
+      "annotations": null,
+      "tags": null,
+      "enabled": true
+    },
+    {
+      "key": "get_trail_details",
+      "name": "get_trail_details",
+      "description": "Get detailed information about a specific trail by its AllTrails slug.\n\nArgs:\n    slug: Trail slug from AllTrails URL (the part after '/trail/')\n\nReturns:\n    Detailed information about the specified trail",
+      "input_schema": {
+        "properties": {
+          "slug": {
+            "title": "Slug",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "type": "object"
+      },
+      "annotations": null,
+      "tags": null,
+      "enabled": true
+    }
+  ],
+  "prompts": [],
+  "resources": [],
+  "templates": [],
+  "capabilities": {
+    "tools": {
+      "listChanged": true
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
+    },
+    "logging": {}
+  }
+}

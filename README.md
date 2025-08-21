@@ -14,10 +14,11 @@ A Model Context Protocol (MCP) server that provides access to AllTrails data, al
 ### Protocol Support
 
 - **Protocol Version**: MCP 1.9.4
-- **Communication**: Standard input/output (stdio)
+- **Communication**: Standard input/output (stdio) or HTTP (FastMCP)
 - **Capabilities**: Tools
 - **Server Name**: alltrails-mcp
 - **Server Version**: 0.1.0
+- **Deployment**: Compatible with FastMCP for cloud deployment
 
 ## Tools Available
 
