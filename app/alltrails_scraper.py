@@ -1,9 +1,9 @@
+import logging
+import re
+from typing import Dict, List, Optional
+
 import requests
 from bs4 import BeautifulSoup
-import time
-import logging
-from typing import List, Dict, Optional
-import re
 
 logger = logging.getLogger(__name__)
 
@@ -12,11 +12,26 @@ BASE_URL = "https://www.alltrails.com"
 def get_headers():
     """Get headers for web scraping to avoid being blocked."""
     return {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.5",
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Accept": (
+            "text/html,application/xhtml+xml,application/xml;q=0.9,"
+            "image/avif,image/webp,image/apng,*/*;q=0.8,"
+            "application/signed-exchange;v=b3;q=0.7"
+        ),
+        "Accept-Language": "en-US,en;q=0.9",
         "Accept-Encoding": "gzip, deflate",
-        "Connection": "keep-alive",
+        "Referer": "https://www.google.com/",
+        "Sec-Ch-Ua": '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+        "Sec-Ch-Ua-Mobile": "?0",
+        "Sec-Ch-Ua-Platform": '"macOS"',
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "cross-site",
+        "Sec-Fetch-User": "?1",
         "Upgrade-Insecure-Requests": "1",
     }
 
@@ -113,12 +128,14 @@ def search_trails_in_park(park_slug: str) -> List[Dict]:
                 # Get trail URL
                 trail_url = None
                 if name_elem.name == "a" and name_elem.get("href"):
-                    trail_url = BASE_URL + name_elem["href"] if name_elem["href"].startswith("/") else name_elem["href"]
+                    href = name_elem["href"]
+                    trail_url = BASE_URL + href if href.startswith("/") else href
                 else:
                     # Look for any link in the card
                     link_elem = card.find("a", href=re.compile(r"/trail/"))
                     if link_elem:
-                        trail_url = BASE_URL + link_elem["href"] if link_elem["href"].startswith("/") else link_elem["href"]
+                        href = link_elem["href"]
+                        trail_url = BASE_URL + href if href.startswith("/") else href
                 
                 if not trail_url:
                     continue
@@ -129,7 +146,13 @@ def search_trails_in_park(park_slug: str) -> List[Dict]:
                     card.find("div", class_=re.compile(r"difficulty", re.I)) or
                     card.find(text=re.compile(r"Easy|Moderate|Hard", re.I))
                 )
-                difficulty = difficulty_elem.get_text(strip=True) if hasattr(difficulty_elem, 'get_text') else str(difficulty_elem).strip() if difficulty_elem else ""
+                difficulty = (
+                    difficulty_elem.get_text(strip=True)
+                    if hasattr(difficulty_elem, "get_text")
+                    else str(difficulty_elem).strip()
+                    if difficulty_elem
+                    else ""
+                )
                 
                 # Extract summary/description
                 summary_selectors = [
@@ -268,8 +291,22 @@ def get_trail_by_slug(slug: str) -> Dict:
             stats["elevation_gain"] = elevation_match.group(1)
         
         # Extract difficulty
-        difficulty_match = re.search(r'Difficulty[:\s]*(Easy|Moderate|Hard)', page_text, re.I)
-        difficulty = difficulty_match.group(1) if difficulty_match else ""
+        difficulty = ""
+        difficulty_selectors = [
+            "[data-testid='trail-difficulty']",
+            ".trail-difficulty",
+            "span.difficulty"
+        ]
+        
+        for selector in difficulty_selectors:
+            elem = soup.select_one(selector)
+            if elem:
+                difficulty = elem.get_text(strip=True)
+                break
+        
+        if not difficulty:
+            difficulty_match = re.search(r'Difficulty[:\s]*(Easy|Moderate|Hard)', page_text, re.I)
+            difficulty = difficulty_match.group(1) if difficulty_match else ""
         
         # Extract rating
         rating_selectors = [
