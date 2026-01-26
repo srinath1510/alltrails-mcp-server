@@ -1,12 +1,34 @@
-# AllTrails MCP Server
-# Copyright (c) 2025 Srinath Srinivasan
-# Licensed under the MIT License - see LICENSE file for details
+# ============================================================================
+# DEPRECATED - THIS SERVER HAS BEEN DISABLED
+# ============================================================================
+# This MCP server has been deprecated as of January 25, 2026
+# Reason: Violation of AllTrails Terms of Service
+#
+# At the request of AllTrails' CTO, all scraping functionality has been
+# disabled. This code is maintained for historical purposes only.
+# ============================================================================
 
-import asyncio
 import sys
 from datetime import datetime
 
-print(f"{datetime.now()}: Starting AllTrails MCP server", file=sys.stderr)
+print("=" * 80, file=sys.stderr)
+print("⚠️  DEPRECATED: AllTrails MCP Server", file=sys.stderr)
+print("=" * 80, file=sys.stderr)
+print("", file=sys.stderr)
+print("This server has been DEPRECATED and DISABLED as of January 25, 2026.", file=sys.stderr)
+print("", file=sys.stderr)
+print("Reason: This project violated AllTrails' Terms of Service by scraping", file=sys.stderr)
+print("their website without authorization.", file=sys.stderr)
+print("", file=sys.stderr)
+print("At the request of AllTrails' CTO, all functionality has been disabled.", file=sys.stderr)
+print("", file=sys.stderr)
+print("Please use AllTrails' official website or contact them about API access.", file=sys.stderr)
+print("", file=sys.stderr)
+print("=" * 80, file=sys.stderr)
+print("", file=sys.stderr)
+
+# Exit immediately - do not start the server
+sys.exit(1)
 
 try:
     import mcp.server.stdio
