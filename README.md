@@ -3,7 +3,34 @@
 ![CI](https://github.com/srinath1510/alltrails-mcp-server/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 
-A Model Context Protocol (MCP) server that provides access to AllTrails data, allowing you to search for hiking trails and get detailed trail information directly through Claude Desktop.
+## ⚠️ DEPRECATED - PROJECT ARCHIVED
+
+**This project has been deprecated and is no longer functional.**
+
+**Date:** January 25, 2026  
+**Reason:** This project violated AllTrails' Terms of Service by scraping their website without authorization.
+
+At the request of AllTrails' CTO, all scraping functionality has been disabled. This repository is maintained for historical purposes only and to preserve GitHub stars, but **the code no longer works and should not be used**.
+
+### What Happened?
+
+AllTrails contacted me regarding this repository, citing:
+- Unauthorized scraping/data extraction in violation of their Terms of Service
+- Potential intellectual property violations
+- Redistribution of copyrighted content without a license
+
+### Alternatives
+
+If you need trail data, please:
+- Use [AllTrails' official website](https://www.alltrails.com/)
+- Contact AllTrails directly about API access
+- Respect website Terms of Service and copyright
+
+---
+
+## Original Description (For Historical Reference)
+
+A Model Context Protocol (MCP) server that ~~provides access to AllTrails data~~ **[DEPRECATED - NO LONGER FUNCTIONAL]**.
 
 ## Features
 
@@ -413,4 +440,12 @@ Copyright (c) 2025 Srinath Srinivasan
 
 ---
 
-**Note:** This tool scrapes publicly available data from AllTrails. Please use responsibly and in accordance with AllTrails' terms of service.
+## ⚠️ IMPORTANT NOTICE
+
+**This project is DEPRECATED and non-functional as of January 25, 2026.**
+
+The scraping functionality violated AllTrails' Terms of Service and has been completely disabled at their request. This repository exists only for historical/educational purposes.
+
+**DO NOT attempt to use, fork, or replicate this code for scraping AllTrails or any other website without explicit written permission from the website owner.**
+
+Respect Terms of Service. Respect copyright. Use official APIs when available.
