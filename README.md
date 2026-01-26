@@ -1,5 +1,8 @@
 # AllTrails MCP Server
 
+![CI](https://github.com/srinath1510/alltrails-mcp-server/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+
 A Model Context Protocol (MCP) server that provides access to AllTrails data, allowing you to search for hiking trails and get detailed trail information directly through Claude Desktop.
 
 ## Features
@@ -103,6 +106,39 @@ python3 server.py
 ```
 
 You should see the server start without crashing. Press Ctrl+C to stop.
+
+---
+
+### Option 3: With Docker
+
+This approach runs the server in an isolated container.
+
+#### 1. Build the Image
+
+```bash
+docker build -t alltrails-mcp .
+```
+
+#### 2. Run the Container
+
+```bash
+docker run -i --rm alltrails-mcp
+```
+
+#### 3. Use with Claude Desktop
+
+For Docker-based deployment, you can configure Claude Desktop to use the containerized server:
+
+```json
+{
+  "mcpServers": {
+    "alltrails_mcp_server": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "alltrails-mcp"]
+    }
+  }
+}
+```
 
 ## Claude Desktop Configuration
 

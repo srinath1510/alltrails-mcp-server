@@ -1,0 +1,14 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+alltrails_mcp_venv/
+.pytest_cache/
+.coverage
+htmlcov/
+.git
+.github
+.ds_store
