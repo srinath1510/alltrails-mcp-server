@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.fixture
 def sample_park_html():
     return """
@@ -20,6 +21,7 @@ def sample_park_html():
         </body>
     </html>
     """
+
 
 @pytest.fixture
 def sample_trail_html():
