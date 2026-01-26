@@ -317,6 +317,25 @@ tail -f ~/Library/Logs/Claude/mcp.log
 # The server also outputs debug information to stderr
 ```
 
+## Development
+
+### Running Tests
+
+Run the test suite using pytest:
+
+```bash
+pytest
+```
+
+### Linting
+
+Format and check code using ruff:
+
+```bash
+ruff check .
+ruff format .
+```
+
 ## Project Structure
 
 ```
@@ -325,10 +344,14 @@ alltrails_mcp/
 │   └── alltrails_scraper.py    # AllTrails scraping logic
 ├── examples/
 │   └── claude_desktop_config.json  # Example configuration file for Claude Desktop
+├── tests/                      # Test suite
+│   ├── conftest.py             # Test fixtures
+│   └── test_scraper.py         # Scraper tests
 ├── server.py                   # MCP server implementation
 ├── requirements.txt            # Python dependencies
+├── pyproject.toml              # Project configuration (Ruff, Pytest)
 ├── alltrails_mcp_venv/         # Virtual environment
-└── README.md                   # This file
+├── README.md                   # This file
 └── .gitignore                  # Git ignore file
 ```
 
