@@ -9,15 +9,15 @@ from datetime import datetime
 print(f"{datetime.now()}: Starting AllTrails MCP server", file=sys.stderr)
 
 try:
-    from mcp.server import Server
-    from mcp.server.models import InitializationOptions
     import mcp.server.stdio
     import mcp.types as types
+    from mcp.server import Server
+    from mcp.server.models import InitializationOptions
     
     print("MCP imports successful", file=sys.stderr)
     
     # Import AllTrails scraper
-    from app.alltrails_scraper import search_trails_in_park, get_trail_by_slug
+    from app.alltrails_scraper import get_trail_by_slug, search_trails_in_park
     print("AllTrails scraper imports successful", file=sys.stderr)
     
     server = Server("alltrails-mcp")
@@ -34,7 +34,10 @@ try:
                     "properties": {
                         "park": {
                             "type": "string",
-                            "description": "Park slug in format 'us/state/park-name' (e.g., 'us/tennessee/great-smoky-mountains-national-park')"
+                            "description": (
+                                "Park slug in format 'us/state/park-name' "
+                                "(e.g., 'us/tennessee/great-smoky-mountains-national-park')"
+                            ),
                         }
                     },
                     "required": ["park"]
@@ -84,8 +87,10 @@ try:
                         response += f"   - Length: {trail['length']}\n"
                     if trail.get('rating'):
                         response += f"   - Rating: {trail['rating']}\n"
-                    if trail.get('summary'):
-                        summary = trail['summary'][:80] + "..." if len(trail['summary']) > 80 else trail['summary']
+                    if trail.get("summary"):
+                        summary = trail["summary"]
+                        if len(summary) > 80:
+                            summary = summary[:80] + "..."
                         response += f"   - Summary: {summary}\n"
                     response += f"   - URL: {trail['url']}\n\n"
                 
