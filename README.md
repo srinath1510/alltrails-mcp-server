@@ -1,4 +1,5 @@
 # AllTrails MCP Server
+[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/srinath1510/alltrails-mcp-server)](https://archestra.ai/mcp-catalog/srinath1510__alltrails-mcp-server)
 
 ![CI](https://github.com/srinath1510/alltrails-mcp-server/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
