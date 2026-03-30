@@ -40,6 +40,10 @@ A Model Context Protocol (MCP) server that ~~provides access to AllTrails data~~
 - 🏔️ **Comprehensive trail data** from AllTrails including ratings, route types, and summaries
 - 🤖 **Seamless Client integration** via MCP protocol
 
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/srinath1510-alltrails-mcp-server).
+
 ## Technical Specifications
 
 ### Protocol Support
